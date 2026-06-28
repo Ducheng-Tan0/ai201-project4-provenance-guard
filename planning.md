@@ -293,7 +293,7 @@ the appeals process.
 
 ---
 
-### Variant A — High-Confidence AI (confidence ≥ 0.65)
+### ⚠️ Variant A — High-Confidence AI (confidence ≥ 0.65)
 
 ```
 AI-Generated Content Detected
@@ -310,7 +310,7 @@ appeal below. Appeals are reviewed by our moderation team.
 
 ---
 
-### Variant B — High-Confidence Human (confidence ≤ 0.35)
+### ✅ Variant B — High-Confidence Human (confidence ≤ 0.35)
 
 ```
 Human-Written Content
@@ -324,7 +324,7 @@ If you believe this assessment is wrong, you can submit an appeal below.
 
 ---
 
-### Variant C — Uncertain (0.36 ≤ confidence ≤ 0.64)
+### 🔍 Variant C — Uncertain (0.36 ≤ confidence ≤ 0.64)
 
 ```
 Attribution Unclear
