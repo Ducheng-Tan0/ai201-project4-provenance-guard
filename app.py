@@ -20,6 +20,7 @@ Rate limiting (Flask-Limiter):
 
 import os
 import uuid
+import time 
 from datetime import datetime, timezone
 
 from flask import Flask, request, jsonify
@@ -72,14 +73,14 @@ def utc_now() -> str:
 # ---------------------------------------------------------------------------
 
 @app.route("/submit", methods=["POST"])
-@limiter.limit("10 per minute; 100 per day")
+@limiter.limit("10 per minute; 1000 per day")
 def submit():
     """
     Accept a piece of text for attribution analysis.
 
     Request JSON:
         {
-            "text":       "string, required, at least 50 words",
+            "text":       "string, required, at least 30 words",
             "creator_id": "string, required"
         }
 
@@ -119,7 +120,7 @@ def submit():
     if word_count < 30:
         return jsonify({
             "error": f"Text too short for reliable analysis ({word_count} words). "
-                     f"Please submit at least 50 words."
+                     f"Please submit at least 30 words."
         }), 400
 
     # --- Run detection signals ---
@@ -166,7 +167,7 @@ def submit():
     # --- Return response (same shape as audit entry, minus text_snippet) ---
     response = {k: v for k, v in entry.items() if k != "text_snippet"}
     response["timestamp"] = response.pop("created_at")   # friendlier key name in API
-    return jsonify(response), 200
+    return jsonify(response)
 
 
 # ---------------------------------------------------------------------------

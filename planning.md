@@ -183,7 +183,9 @@ Three measurable statistical properties of the text's surface form, independent 
    AI models frequently repeat the same mid-frequency words ("important," "ensure," "various,"
    "stakeholders") within a passage, driving TTR down relative to informal or expressive human writing.
 
-3. **Punctuation density** (`pd`): count of non-period punctuation marks (commas, semicolons,
+3. **Punctuation density** (`pd`): count of no
++
+n-period punctuation marks (commas, semicolons,
    em-dashes, parentheses, exclamation/question marks) divided by total character count. Human writing
    — especially informal writing — uses a wider variety and higher density of non-period punctuation.
    AI text is often more conservative and period-heavy.
