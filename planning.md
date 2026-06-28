@@ -56,7 +56,7 @@ SUBMISSION FLOW
 ┌─────────────────────────────┐
 │  Signal 1: LLM Classifier   │
 │  (Groq llama-3.3-70b)       │
-│  → llm_score  (0.0 – 1.0)  │
+│  → llm_score  (0.0 – 1.0)   │
 └────────────┬────────────────┘
              │ llm_score
              ▼
@@ -65,7 +65,7 @@ SUBMISSION FLOW
 │  - sentence length variance     │
 │  - type-token ratio             │
 │  - punctuation density          │
-│  → stylo_score  (0.0 – 1.0)   │
+│  → stylo_score  (0.0 – 1.0)     │
 └────────────┬────────────────────┘
              │ stylo_score
              ▼
@@ -73,14 +73,14 @@ SUBMISSION FLOW
 │  Confidence Scoring Module      │
 │  weighted avg (60% LLM,         │
 │                40% stylometric) │
-│  → confidence  (0.0 – 1.0)    │
+│  → confidence  (0.0 – 1.0)      │
 └────────────┬────────────────────┘
              │ confidence
              ▼
 ┌────────────────────────────┐
 │  Transparency Label        │
 │  Generator                 │
-│  → label_text  (string)   │
+│  → label_text  (string)    │
 └────────────┬───────────────┘
              │ full result
              ▼
