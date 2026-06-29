@@ -427,16 +427,16 @@ bounds were calibrated on prose.
 submission, either skipping the stylometric signal or suppressing its weight. This is not
 implemented in v1 — it is listed as a known limitation in the README.
 
-### Edge Case 3: Very Short Submissions (< 50 words)
+### Edge Case 3: Very Short Submissions (< 30 words)
 
 The LLM signal has too little content to assess meaningfully, and the stylometric metrics have
 no statistical validity with fewer than 3 sentences. Both signals will produce near-0.5 scores
 by default, collapsing everything into "Uncertain" — not because the system is genuinely unsure,
 but because there is insufficient data.
 
-**Mitigation:** Validate `len(text.split()) >= 50` at the submission endpoint and return a 400
+**Mitigation:** Validate `len(text.split()) >= 30` at the submission endpoint and return a 400
 error with a message like: "Submission too short for reliable analysis. Please submit at least
-50 words."
+30 words."
 
 ### Edge Case 4: Mixed-Origin Content (Human Draft + AI Polish)
 
@@ -462,7 +462,7 @@ content would be more honest, but is out of scope for this project.
 Request:
 ```json
 {
-  "text": "string, required, min 50 words",
+  "text": "string, required, min 30 words",
   "creator_id": "string, required"
 }
 ```
